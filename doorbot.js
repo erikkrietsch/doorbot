@@ -420,6 +420,16 @@ class Doorbot {
         }, callback);
     }
     
+    play_chime_sound(device, callback) {
+        validate_device(device);
+        validate_callback(callback);
+        var url = `/chimes/${device.id}/play_sound`;
+        this.simpleRequest(url, 'POST', {
+            kind: 'ding' //or motion
+        },
+        callback);
+    }
+    
     health(device, callback) {
         validate_device(device);
         validate_callback(callback);
